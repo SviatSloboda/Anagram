@@ -54,5 +54,15 @@ class AnagramTest{
 		assertEquals(expectedString, actual);
 	}
 	
+    @Test
+    public void reverseOneString_when__hello__hello__then__olleh__olleh__(){
+        //given
+        String expectedString = " olleh  olleh ";
+        //when
+        String actual = Anagram.anagram(" hello  hello ");
+        //then
+        assertEquals(expectedString, actual);
+    }
+	
 	
 }

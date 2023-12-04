@@ -1,39 +1,41 @@
 package com.foxminded.anagram;
 
-public class Anagram 
-{
-	
+public class Anagram {
 	public static void main(String[] args) {
 		System.out.println(anagram("abcd efgh"));
 	}
 	
 	public static String reverseOneString(String value) {
-        char[] arr = value.toCharArray();
+        char[] valueCharArray = value.toCharArray();
 
         int leftPivot = 0;
-        int rightPivot = arr.length - 1;
+        int rightPivot = valueCharArray.length - 1;
 
         while (leftPivot < rightPivot) {
-            if (!Character.isAlphabetic(arr[leftPivot])) {
+            if (!Character.isAlphabetic(valueCharArray[leftPivot])) {
                 leftPivot++;
-            } else if (!Character.isAlphabetic(arr[rightPivot])) {
+            } else if (!Character.isAlphabetic(valueCharArray[rightPivot])) {
                 rightPivot--;
             } else {
-                char temp = arr[leftPivot];
-                arr[leftPivot] = arr[rightPivot];
-                arr[rightPivot] = temp;
+                char temp = valueCharArray[leftPivot];
+                valueCharArray[leftPivot] = valueCharArray[rightPivot];
+                valueCharArray[rightPivot] = temp;
                 leftPivot++;
                 rightPivot--;
             }
         }
-        return new String(arr);
+        
+        return new String(valueCharArray);
     }
 	
     public static String anagram(String value) {
         StringBuilder result = new StringBuilder();
-        for(String i: value.split(" ")) {
-            result.append(reverseOneString(i)).append(" ");
+        String[] words = value.split("(?<=\\s)|(?=\\s)");
+
+        for (String word : words) {
+            result.append(reverseOneString(word));
         }
-        return result.toString().trim();
+
+        return result.toString();
     }
 }
