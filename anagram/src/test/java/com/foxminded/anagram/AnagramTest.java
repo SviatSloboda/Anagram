@@ -4,22 +4,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class AnagramTest{
+class AnagramTest {
 	@Test
 	public void reverseOneString_when_000a00b_then_000b00a() {
 		//given
 		String expectedString = "000b00a";
 		//when
-		String actual = Anagram.reverseOneString("000a00b");
+		String actual = Anagram.reverseLetters("000a00b");
 		//then
 		assertEquals(expectedString, actual);
 	}
+	
 	@Test
 	public void reverseOneString_when_abcd_then_dcba() {
 		//given
 		String expectedString = "dcba";
 		//when
-		String actual = Anagram.reverseOneString("abcd");
+		String actual = Anagram.reverseLetters("abcd");
 		//then
 		assertEquals(expectedString, actual);
 	}
@@ -29,7 +30,7 @@ class AnagramTest{
 		//given
 		String expectedString = "efgh";
 		//when
-		String actual = Anagram.reverseOneString("hgfe");
+		String actual = Anagram.reverseLetters("hgfe");
 		//then
 		assertEquals(expectedString, actual);
 	}
@@ -39,7 +40,7 @@ class AnagramTest{
 		//given
 		String expectedString = "dcba hgfe";
 		//when
-		String actual = Anagram.anagram("abcd efgh");
+		String actual = Anagram.getAnagram("abcd efgh");
 		//then
 		assertEquals(expectedString, actual);
 	}
@@ -49,7 +50,7 @@ class AnagramTest{
 		//given
 		String expectedString = "d1cba hgf!e";
 		//when
-		String actual = Anagram.anagram("a1bcd efg!h");
+		String actual = Anagram.getAnagram("a1bcd efg!h");
 		//then
 		assertEquals(expectedString, actual);
 	}
@@ -59,10 +60,8 @@ class AnagramTest{
         //given
         String expectedString = " olleh  olleh ";
         //when
-        String actual = Anagram.anagram(" hello  hello ");
+        String actual = Anagram.getAnagram(" hello  hello ");
         //then
         assertEquals(expectedString, actual);
     }
-	
-	
 }

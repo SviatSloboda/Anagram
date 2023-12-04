@@ -2,10 +2,10 @@ package com.foxminded.anagram;
 
 public class Anagram {
 	public static void main(String[] args) {
-		System.out.println(anagram("abcd efgh"));
+		System.out.println(getAnagram("abcd efgh"));
 	}
 	
-	public static String reverseOneString(String value) {
+	static String reverseLetters(String value) {
         char[] valueCharArray = value.toCharArray();
 
         int leftPivot = 0;
@@ -28,12 +28,12 @@ public class Anagram {
         return new String(valueCharArray);
     }
 	
-    public static String anagram(String value) {
+    public static String getAnagram(String value) {
         StringBuilder result = new StringBuilder();
         String[] words = value.split("(?<=\\s)|(?=\\s)");
 
         for (String word : words) {
-            result.append(reverseOneString(word));
+            result.append(reverseLetters(word));
         }
 
         return result.toString();
