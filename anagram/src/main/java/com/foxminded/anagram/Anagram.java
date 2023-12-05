@@ -1,11 +1,13 @@
 package com.foxminded.anagram;
 
 public class Anagram {
-	public static void main(String[] args) {
-		System.out.println(getAnagram("abcd efgh"));
-	}
-	
-	static String reverseLetters(String value) {
+    public static void main(String[] args) {
+        System.out.println(getAnagram("abcd efgh"));
+    }
+
+    static String reverseLetters(String value) {
+        if(value == null) throw new IllegalArgumentException("Null is not allowed!");
+
         char[] valueCharArray = value.toCharArray();
 
         int leftPivot = 0;
@@ -24,11 +26,13 @@ public class Anagram {
                 rightPivot--;
             }
         }
-        
+
         return new String(valueCharArray);
     }
-	
+
     public static String getAnagram(String value) {
+        if(value == null) throw new IllegalArgumentException("Null is not allowed!");
+
         StringBuilder result = new StringBuilder();
         String[] words = value.split("(?<=\\s)|(?=\\s)");
 
