@@ -6,8 +6,6 @@ public class Anagram {
 	}
 	
 	static String reverseLetters(String value) {
-        if(value == null) throw new IllegalArgumentException("Null is not allowed!");
-
         char[] valueCharArray = value.toCharArray();
 
         int leftPivot = 0;
@@ -31,8 +29,6 @@ public class Anagram {
     }
 	
     public static String getAnagram(String value) {
-        if(value == null) throw new IllegalArgumentException("Null is not allowed!");
-
         StringBuilder result = new StringBuilder();
         String[] words = value.split("(?<=\\s)|(?=\\s)");
 
